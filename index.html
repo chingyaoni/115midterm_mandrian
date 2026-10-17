@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="referrer" content="no-referrer">
-<title>復興小一注音大冒險 2.3｜iPad 雙引擎發音＋115題庫旗艦版</title>
+<title>復興小一注音大冒險 2.5｜台灣標準國語旗艦版</title>
 <style>
   :root {
     --primary: #FF6B6B;
@@ -27,7 +27,6 @@
     user-select: none;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    /* 100% 維持 v2.0 經典飽滿黑體字型 */
     font-family: "PingFang TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
   }
 
@@ -43,7 +42,6 @@
     flex-direction: column;
   }
 
-  /* 頂部狀態列 */
   header {
     height: 62px;
     width: 100%;
@@ -133,7 +131,6 @@
     box-shadow: none;
   }
 
-  /* 主畫面容器 */
   main {
     flex: 1;
     width: 100%;
@@ -145,7 +142,6 @@
     overflow: hidden;
   }
 
-  /* 首頁控制面板 */
   .config-bar {
     background: white;
     border-radius: 18px;
@@ -211,7 +207,6 @@
     box-shadow: 0 3px 0 #5B21B6;
   }
 
-  /* 終極挑戰：自選題庫多選列 */
   .mix-selector-row {
     display: none;
     align-items: center;
@@ -242,7 +237,6 @@
     color: #166534;
   }
 
-  /* 首頁 6 大單元網格 */
   .menu-grid {
     flex: 1;
     display: grid;
@@ -305,7 +299,6 @@
     transform: scale(0.94);
   }
 
-  /* ==================== 遊戲主舞台 ==================== */
   .game-stage {
     flex: 1;
     background: white;
@@ -353,7 +346,6 @@
     min-height: 0;
   }
 
-  /* 左欄：題目與語音區 */
   .left-prompt-panel {
     height: 100%;
     background: #F8FAFC;
@@ -409,7 +401,6 @@
     box-shadow: 0 4px 0 #047857;
   }
 
-  /* 右欄：選項卡片區 */
   .right-options-panel {
     height: 100%;
     display: flex;
@@ -479,7 +470,6 @@
     75% { transform: translateX(8px); }
   }
 
-  /* ==================== 核心：1:1 四等分正方形「十字方格（田字格）」 ==================== */
   .zy-word-column {
     display: flex;
     flex-direction: column;
@@ -496,7 +486,6 @@
     gap: 4px;
   }
 
-  /* 嚴格 1:1 正方形，四個象限完全等大 */
   .tianzige {
     width: 96px;
     height: 96px;
@@ -509,25 +498,21 @@
     flex-shrink: 0;
   }
 
-  /* 三字語詞微縮版 */
   .zy-word-column.compact .tianzige {
     width: 80px;
     height: 80px;
   }
 
-  /* 四字語詞（如：黑面琵鷺）專屬自適應版，依然嚴格維持 1:1 正方形 */
   .zy-word-column.compact-4 .tianzige {
     width: 64px;
     height: 64px;
   }
 
-  /* 單元三左欄展示用大號田字格 */
   .tianzige.large-demo {
     width: 112px;
     height: 112px;
   }
 
-  /* 十字虛線：精確 50% 水平與 50% 垂直正中央分割 */
   .tianzige::before {
     content: "";
     position: absolute;
@@ -552,7 +537,6 @@
     z-index: 1;
   }
 
-  /* 注音符號單字定位（固定在左半格中心 x = 27%，垂直依字數精準分配） */
   .tz-char {
     position: absolute;
     left: 27%;
@@ -577,7 +561,6 @@
     font-size: 1.78rem;
   }
 
-  /* 輕聲點點定位（嚴格收在左上格頂部內側 top: 11%，絕不超出邊框） */
   .tz-light-dot {
     position: absolute;
     left: 27%;
@@ -589,7 +572,6 @@
     justify-content: center;
   }
 
-  /* 二、三、四聲定位（固定在右半格中心 x = 73%，高度依 2 音或 3 音動態鎖定） */
   .tz-tone-side {
     position: absolute;
     left: 73%;
@@ -600,7 +582,6 @@
     justify-content: center;
   }
 
-  /* 單元三：神秘問號提示框 */
   .tz-mystery-badge {
     border: 2px dashed var(--primary);
     background: #FFF1F2;
@@ -618,7 +599,6 @@
     50% { transform: scale(1.12); }
   }
 
-  /* 句子顯示與聲調按鈕區 */
   .sentence-box {
     font-size: 1.45rem;
     font-weight: 800;
@@ -665,7 +645,6 @@
     color: #475569;
   }
 
-  /* 底部即時回饋列 */
   .feedback-bar {
     height: 68px;
     margin-top: 8px;
@@ -708,7 +687,6 @@
     white-space: nowrap;
   }
 
-  /* 單元五：閱讀測驗排版 */
   .reading-scroll {
     text-align: left;
     font-size: 1.15rem;
@@ -745,6 +723,20 @@
     border-color: var(--blue);
     box-shadow: 0 4px 0 var(--blue);
   }
+
+  @keyframes praisePop {
+    0% { transform: scale(0.6); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  .praise-title {
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin: 8px 0;
+    letter-spacing: 2px;
+    animation: praisePop 0.5s ease;
+  }
 </style>
 </head>
 <body>
@@ -753,19 +745,18 @@
   <div class="header-left">
     <span style="font-size:1.85rem;">🏫</span>
     <div>
-      <h1>復興小一注音大冒險 2.3</h1>
+      <h1>復興小一注音大冒險 2.5</h1>
     </div>
-    <span class="header-tag">iPad 雙引擎發音＋115練習題</span>
+    <span class="header-tag">台灣標準國語旗艦版</span>
   </div>
   <div class="header-right">
-    <button class="btn-tts-mode" id="ttsModeBtn" onclick="cycleTtsMode()">🔊 發音：自動雙引擎 (點此測試)</button>
+    <button class="btn-tts-mode" id="ttsModeBtn" onclick="cycleTtsMode()">🔊 發音：台灣標準國語 (點此測試)</button>
     <div class="star-pill">⭐ <span id="starDisplay">0</span></div>
     <button class="btn-top" id="homeBtn" onclick="goHome()" style="display:none;">🏠 返回選單</button>
   </div>
 </header>
 
 <main>
-  <!-- 首頁設定列與單元網格 -->
   <div id="homeView" style="display:flex; flex-direction:column; height:100%;">
     <div class="config-bar">
       <div class="config-row">
@@ -784,7 +775,6 @@
         </div>
       </div>
 
-      <!-- 點選「終極挑戰」時展開的自選題庫組合列 -->
       <div class="mix-selector-row" id="mixSelectorRow">
         <span style="font-weight:900; color:#B45309; font-size:0.92rem;">⚡ 請勾選要納入「終極挑戰」的題庫（可複選）：</span>
         <button class="mix-check-btn checked" id="chk_past" onclick="toggleMixPool('past')">☑️ 📘 109~114 考古題</button>
@@ -832,7 +822,7 @@
       <div class="unit-card c6" onclick="startUnit(6)">
         <div class="unit-icon">👾</div>
         <div class="unit-title">怪獸黑名單（錯題本）</div>
-        <p class="unit-desc">答錯的題目自動收進這裡！可隨時消滅怪獸或一鍵重置錯題紀錄。</p>
+        <p class="unit-desc">答錯的題目自動收進這裡！全部消滅時會跳出專屬大獎勵喔！</p>
         <div style="display:flex; align-items:center; gap:8px;">
           <span class="unit-pill" id="mistakeCountPill" style="background:#EF4444;">目前 0 題待消滅</span>
           <button class="btn-reset-mistakes" onclick="resetMistakes(event)">🗑️ 重置錯題</button>
@@ -841,7 +831,6 @@
     </div>
   </div>
 
-  <!-- 遊戲舞台 -->
   <div id="gameView" class="game-stage">
     <div class="stage-top-bar">
       <strong id="stageUnitTitle" style="font-size:1.12rem; color:var(--dark);">單元名稱</strong>
@@ -862,17 +851,16 @@
   </div>
 </main>
 
-<!-- 隱藏的雲端語音播放器（用於突破 iOS 檔案預覽器限制） -->
 <audio id="cloudTtsAudio" preload="none" referrerpolicy="no-referrer"></audio>
 
 <script>
-/* ==================== 第一部分：iPadOS 雙引擎語音與音效系統 ==================== */
+/* ==================== 專屬台灣標準國語語音系統 ==================== */
 const AudioCtx = window.AudioContext || window.webkitAudioContext;
 let audioCtx = null;
-let ttsEngineMode = 'auto'; // 'auto' | 'native' | 'cloud'
+let ttsEngineMode = 'native'; // 預設優先 iPad 台灣原生語音
 let cachedTwVoice = null;
 let speechWatchdog = null;
-window._activeUtterance = null; // 防止 iOS Safari Garbage Collection 回收語音物件
+window._activeUtterance = null;
 
 function ensureAudioUnlocked() {
   try {
@@ -881,17 +869,27 @@ function ensureAudioUnlocked() {
   } catch (e) {}
 }
 
-// 尋找並綁定 iPad 內建的最佳台灣國語語音包 (如 Mei-Jia)
+// 精準篩選台灣繁體中文 (zh-TW)，排除任何非台灣語音
 function loadBestTwVoice() {
   if (!('speechSynthesis' in window)) return;
   const voices = window.speechSynthesis.getVoices();
   if (!voices || voices.length === 0) return;
 
-  cachedTwVoice =
-    voices.find(v => v.name.includes('Mei-Jia') || v.name.includes('美佳')) ||
-    voices.find(v => v.lang === 'zh-TW' && v.localService) ||
-    voices.find(v => v.lang === 'zh-TW' || v.lang === 'zh_TW' || v.lang.includes('TW')) ||
-    voices.find(v => v.lang.startsWith('zh'));
+  const twVoices = voices.filter(v =>
+    (v.lang === 'zh-TW' || v.lang === 'zh_TW' || v.lang.toLowerCase() === 'zh-hant-tw') &&
+    !v.lang.includes('CN') && !v.name.includes('China') && !v.name.includes('Mandarin (China)')
+  );
+
+  if (twVoices.length > 0) {
+    cachedTwVoice =
+      twVoices.find(v => v.name.includes('Siri')) ||
+      twVoices.find(v => v.name.includes('Enhanced') || v.name.includes('增強')) ||
+      twVoices.find(v => v.name.includes('Mei-Jia') || v.name.includes('美佳')) ||
+      twVoices.find(v => v.name.includes('Han')) ||
+      twVoices[0];
+  } else {
+    cachedTwVoice = voices.find(v => v.lang.includes('TW'));
+  }
 }
 
 if ('speechSynthesis' in window) {
@@ -899,7 +897,6 @@ if ('speechSynthesis' in window) {
   window.speechSynthesis.onvoiceschanged = loadBestTwVoice;
 }
 
-// 首次觸控螢幕時自動解鎖 iPad 音訊與語音佇列
 document.addEventListener('touchstart', function unlockOnFirstTouch() {
   ensureAudioUnlocked();
   if ('speechSynthesis' in window) {
@@ -943,36 +940,36 @@ function playSound(type) {
       g.gain.exponentialRampToValueAtTime(0.001, now + 0.06);
       o.connect(g); g.connect(audioCtx.destination);
       o.start(now); o.stop(now + 0.06);
+    } else if (type === 'victory') {
+      [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(f, now + i * 0.1);
+        g.gain.setValueAtTime(0.2, now + i * 0.1);
+        g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.1 + 0.35);
+        o.connect(g); g.connect(audioCtx.destination);
+        o.start(now + i * 0.1); o.stop(now + i * 0.1 + 0.35);
+      });
     }
   } catch(e) {}
 }
 
-// 雲端真人語音備援播放（解決 LINE / 檔案 App 預覽器無聲問題）
+// 純淨台灣繁體中文雲端發音來源 (完全排除大陸音源)
 function playCloudTTS(cleanText) {
   const audioEl = document.getElementById('cloudTtsAudio');
   if (!audioEl) return;
   const encoded = encodeURIComponent(cleanText);
-  // 優先使用有道國語發音串流，若失敗則切換 Google TW 語音串流
-  const url1 = `https://dict.youdao.com/dictvoice?audio=${encoded}&le=zh`;
-  const url2 = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=${encoded}`;
+  const twUrl = `https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=zh-TW&q=${encoded}`;
 
   audioEl.pause();
-  audioEl.src = url1;
-  audioEl.playbackRate = 0.92;
-  audioEl.onerror = () => {
-    audioEl.onerror = null;
-    audioEl.src = url2;
-    audioEl.play().catch(() => {});
-  };
-  audioEl.play().catch(() => {
-    audioEl.src = url2;
-    audioEl.play().catch(() => {});
-  });
+  audioEl.src = twUrl;
+  audioEl.playbackRate = 0.88;
+  audioEl.play().catch(() => {});
 }
 
-// 修復版核心發音函式
 function speak(rawText) {
-  playSound('tap'); // 立即給予輕脆按鍵音回饋，確認觸控有效
+  playSound('tap');
   const cleanText = String(rawText)
     .replace(/（.*?）/g, '')
     .replace(/【|】|＿＿/g, '')
@@ -981,7 +978,6 @@ function speak(rawText) {
 
   if (!cleanText) return;
 
-  // 視覺回饋：按鈕變綠閃爍
   const audioBtn = document.querySelector('.btn-audio');
   if (audioBtn) {
     audioBtn.classList.add('speaking');
@@ -993,19 +989,16 @@ function speak(rawText) {
     speechWatchdog = null;
   }
 
-  // 若強制選擇雲端模式，或瀏覽器不支援 speechSynthesis
   if (ttsEngineMode === 'cloud' || !('speechSynthesis' in window)) {
     playCloudTTS(cleanText);
     return;
   }
 
-  // iPad 原生語音模式（修正 cancel 非同步吃字臭蟲）
   try {
     const synth = window.speechSynthesis;
     synth.resume();
     if (!cachedTwVoice) loadBestTwVoice();
 
-    // 只有在正在說話時才 cancel，並延遲 80ms 後再發聲
     const delayMs = (synth.speaking || synth.pending) ? 85 : 10;
     if (synth.speaking || synth.pending) {
       synth.cancel();
@@ -1015,11 +1008,12 @@ function speak(rawText) {
       try {
         synth.resume();
         const u = new SpeechSynthesisUtterance(cleanText);
-        window._activeUtterance = u; // 強制保留全域參照，防止 iOS 回收記憶體
+        window._activeUtterance = u;
         u.lang = 'zh-TW';
         if (cachedTwVoice) u.voice = cachedTwVoice;
-        u.rate = 0.88;
-        u.pitch = 1.05;
+        // 專為台灣國語幼兒設計的聽感微調
+        u.rate = 0.82;
+        u.pitch = 1.02;
         u.volume = 1.0;
 
         let started = false;
@@ -1033,21 +1027,16 @@ function speak(rawText) {
         u.onend = () => { window._activeUtterance = null; };
         u.onerror = () => {
           window._activeUtterance = null;
-          if (ttsEngineMode === 'auto' && !started) playCloudTTS(cleanText);
+          playCloudTTS(cleanText);
         };
 
-        // 自動雙引擎看門狗：若 350ms 內 iOS 原生語音沒反應（例如在檔案預覽器中），自動啟動雲端發音
-        if (ttsEngineMode === 'auto') {
-          speechWatchdog = setTimeout(() => {
-            if (!started) {
-              playCloudTTS(cleanText);
-            }
-          }, 350);
-        }
+        speechWatchdog = setTimeout(() => {
+          if (!started) playCloudTTS(cleanText);
+        }, 350);
 
         synth.speak(u);
       } catch (innerErr) {
-        if (ttsEngineMode === 'auto') playCloudTTS(cleanText);
+        playCloudTTS(cleanText);
       }
     }, delayMs);
   } catch (e) {
@@ -1056,19 +1045,18 @@ function speak(rawText) {
 }
 
 function cycleTtsMode() {
-  const modes = ['auto', 'native', 'cloud'];
+  const modes = ['native', 'cloud'];
   const labels = {
-    'auto': '🔊 發音：自動雙引擎 (點此測試)',
-    'native': '🔊 發音：iPad 內建語音',
-    'cloud': '🔊 發音：雲端真人發音'
+    'native': '🔊 發音：iPad 台灣國語 (點此測試)',
+    'cloud': '🔊 發音：台灣雲端發音 (點此測試)'
   };
   const nextIdx = (modes.indexOf(ttsEngineMode) + 1) % modes.length;
   ttsEngineMode = modes[nextIdx];
   document.getElementById('ttsModeBtn').textContent = labels[ttsEngineMode];
-  speak('發音測試成功');
+  speak('台灣國語發音測試');
 }
 
-/* ==================== 第二部分：SVG 向量聲調與 1:1 田字格渲染器 ==================== */
+/* ==================== 題庫與邏輯部分（維持完整架構） ==================== */
 function getToneSVG(tone, size = 20, color = '#0F172A') {
   if (tone === 'ˊ') {
     return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" style="display:block;overflow:visible;">
@@ -1138,10 +1126,10 @@ function getLayoutPositions(charCount, hasLight) {
       toneTop = 50;
     } else if (charCount === 2) {
       charTops = [28, 72];
-      toneTop = 50; // 雙注音正中間（50%十字橫線上）
+      toneTop = 50;
     } else {
       charTops = [20, 50, 80];
-      toneTop = 65; // 三注音第2與第3注音正中間（65%）
+      toneTop = 65;
     }
   }
   return { charTops, toneTop };
@@ -1197,10 +1185,7 @@ function renderVerticalWordHTML(zyWord, mysteryToneMode = false, isLargeDemo = f
   return `<div class="zy-word-column ${sizeClass}">${boxesHTML}</div>`;
 }
 
-/* ==================== 第三部分：三大題庫資料 (109~114考古題 / 115練習題 / 校本挑戰題) ==================== */
-
-// -------------------- 【單元一：看圖選詞】 --------------------
-// 1. 109~114 歷屆考古題 (38題)
+// 題庫資料（完整收錄 109~114 考古題、115 校稿練習題、校本平翹舌挑戰題）
 const u1Past = [
   { id:'u1p1', emoji:'🥛', name:'牛奶', ans:'ㄋㄧㄡˊ ㄋㄞˇ', opts:['ㄋㄧㄡˊ ㄋㄞˇ','ㄋㄧㄡˊ ㄋㄟˇ','ㄌㄧㄡˊ ㄋㄞˇ','ㄋㄡˊ ㄋㄞˇ'], tip:'「牛」是 ㄋ 加上介音 ㄧ（109~114常客）' },
   { id:'u1p2', emoji:'☂️', name:'雨傘', ans:'ㄩˇ ㄙㄢˇ', opts:['ㄩˇ ㄙㄢˇ','ㄩˇ ㄙㄤˇ','ㄩˇ ㄕㄢˇ','ㄩˊ ㄙㄢˇ'], tip:'「傘」是平舌音 ㄙ 加上前鼻音 ㄢˇ（109、114考題）' },
@@ -1242,7 +1227,6 @@ const u1Past = [
   { id:'u1p38', emoji:'🐧', name:'企鵝', ans:'ㄑㄧˋ ㄜˊ', opts:['ㄑㄧˋ ㄜˊ','ㄑㄧˋ ㄜ','ㄐㄧˋ ㄜˊ','ㄑㄧˊ ㄜˊ'], tip:'「企」是四聲 ㄑㄧˋ，「鵝」是二聲 ㄜˊ（114卷一考題）' }
 ];
 
-// 2. 🌟 115 最新練習題 (校稿完成版 36 題，含卷一圈詞＋卷二動物圖鑑)
 const u1P115 = [
   { id:'u1_115_1', emoji:'🛁', name:'泡澡', ans:'ㄆㄠˋ ㄗㄠˇ', opts:['ㄆㄠˋ ㄗㄠˇ','ㄆㄠˋ ㄓㄠˇ','ㄆㄠˋ ㄗㄡˇ','ㄆㄠ ㄗㄠˇ'], tip:'115練習卷一第1題：「澡」是平舌音 ㄗㄠˇ，不是翹舌 ㄓㄠˇ！' },
   { id:'u1_115_2', emoji:'🥬', name:'菠菜', ans:'ㄅㄛ ㄘㄞˋ', opts:['ㄅㄛ ㄘㄞˋ','ㄅㄛ ㄔㄞˋ','ㄆㄛ ㄘㄞˋ','ㄅㄛ ㄘㄞ'], tip:'115練習卷一第2題（校稿修正）：「菜」是平舌音四聲 ㄘㄞˋ，不是 ㄔㄞˋ！' },
@@ -1264,11 +1248,10 @@ const u1P115 = [
   { id:'u1_115_18', emoji:'🧀', name:'乳酪', ans:'ㄖㄨˇ ㄌㄨㄛˋ', opts:['ㄖㄨˇ ㄌㄨㄛˋ','ㄌㄨˇ ㄖㄨㄛˋ','ㄖㄨˇ ㄌㄡˋ','ㄌㄨˇ ㄌㄨㄛˋ'], tip:'115練習卷一第18題：「乳」是 ㄖㄨˇ，「酪」是 ㄌㄨㄛˋ！' },
   { id:'u1_115_19', emoji:'🌺', name:'花朵', ans:'ㄏㄨㄚ ㄉㄨㄛˇ', opts:['ㄏㄨㄚ ㄉㄨㄛˇ','ㄏㄨㄚ ㄉㄡˇ','ㄏㄨㄚ ㄉㄛˇ','ㄈㄚ ㄉㄨㄛˇ'], tip:'115練習卷一第19題（校稿修正）：「朵」是 ㄉㄨㄛˇ，不是 ㄉㄡˇ（花抖）！' },
   { id:'u1_115_20', emoji:'🎠', name:'旋轉', ans:'ㄒㄩㄢˊ ㄓㄨㄢˇ', opts:['ㄒㄩㄢˊ ㄓㄨㄢˇ','ㄒㄧㄢˊ ㄓㄨㄢˇ','ㄒㄩㄢˊ ㄗㄨㄢˇ','ㄒㄩㄤˊ ㄓㄨㄢˇ'], tip:'115練習卷一第20題（校稿修正）：「旋」是撮口音 ㄒㄩㄢˊ，不是 ㄒㄧㄢˊ（賢轉）！' },
-  { id:'u1_115_21', emoji:'🐛', name:'毛蟲', ans:'ㄇㄠˊ ㄔㄨㄥˊ', opts:['ㄇㄠˊ ㄔㄨㄥˊ','ㄇㄠˊ ㄘㄨㄥˊ','ㄇㄠˊ ㄔㄨㄣˊ','ㄇㄠ ㄔㄨㄥˊ'], tip:'115練習卷一第21題（校稿修正）：「蟲」是翹舌音 ㄔㄨㄥˊ，不是平舌 ㄘㄨㄥˊ（毛叢）！' },
+  { id:'u1_115_21', emoji:'🐛', name:'毛蟲', ans:'ㄇㄠˊ ㄔㄨㄥˊ', opts:['ㄇㄠˊ ㄔㄨㄥˊ','ㄇㄠˊ ㄘㄨㄥˊ','ㄇㄠˊ ㄔㄨㄣˊ','ㄇㄠ ㄔㄨㄥˊ'], tip:'115練習卷一第21題（校稿修正）：「蟲」是翹舌音 ㄔㄨㄥˊ，不是 ㄘㄨㄥˊ（毛叢）！' },
   { id:'u1_115_22', emoji:'🎃', name:'南瓜', ans:'ㄋㄢˊ ㄍㄨㄚ', opts:['ㄋㄢˊ ㄍㄨㄚ','ㄌㄢˊ ㄍㄨㄚ','ㄋㄤˊ ㄍㄨㄚ','ㄋㄢˊ ㄍㄚ'], tip:'115練習卷一第22題：「南」是鼻音 ㄋㄢˊ，不是邊音 ㄌㄢˊ！' },
   { id:'u1_115_23', emoji:'⛰️', name:'山崖', ans:'ㄕㄢ ㄧㄞˊ', opts:['ㄕㄢ ㄧㄞˊ','ㄕㄢ ㄧㄚˊ','ㄙㄢ ㄧㄞˊ','ㄕㄤ ㄧㄞˊ'], tip:'115練習卷一第23題（校稿修正）：教育部審定「山崖」的崖讀作 ㄧㄞˊ，不是 ㄧㄚˊ！' },
   { id:'u1_115_24', emoji:'🐠', name:'金魚', ans:'ㄐㄧㄣ ㄩˊ', opts:['ㄐㄧㄣ ㄩˊ','ㄐㄧㄥ ㄩˊ','ㄐㄧㄣ ㄧˊ','ㄑㄧㄣ ㄩˊ'], tip:'115練習卷一第24題＆卷二第8題：「金」是前鼻音 ㄐㄧㄣ！' },
-  // 115 練習卷二（動物與情境寫詞題庫）
   { id:'u1_115_25', emoji:'🐿️', name:'飛鼠', ans:'ㄈㄟ ㄕㄨˇ', opts:['ㄈㄟ ㄕㄨˇ','ㄏㄨㄟ ㄕㄨˇ','ㄈㄟ ㄙㄨˇ','ㄈㄟ ㄕㄨ'], tip:'115練習卷二第4題：「飛」是 ㄈㄟ，「鼠」是翹舌音 ㄕㄨˇ！' },
   { id:'u1_115_26', emoji:'🐘', name:'大象', ans:'ㄉㄚˋ ㄒㄧㄤˋ', opts:['ㄉㄚˋ ㄒㄧㄤˋ','ㄉㄚˋ ㄒㄧㄢˋ','ㄉㄚˋ ㄒㄤˋ','ㄊㄚˋ ㄒㄧㄤˋ'], tip:'115練習卷二第5題：「象」是後鼻音四聲 ㄒㄧㄤˋ！' },
   { id:'u1_115_27', emoji:'🦎', name:'蜥蜴', ans:'ㄒㄧ ㄧˋ', opts:['ㄒㄧ ㄧˋ','ㄒㄧ ㄧˊ','ㄒㄧˊ ㄧˋ','ㄙㄧ ㄧˋ'], tip:'115練習卷二第6題：「蜥」是一聲 ㄒㄧ，「蜴」是四聲 ㄧˋ！' },
@@ -1280,10 +1263,9 @@ const u1P115 = [
   { id:'u1_115_33', emoji:'🦆', name:'鴨子', ans:'ㄧㄚ ˙ㄗ', opts:['ㄧㄚ ˙ㄗ','ㄧㄚ ㄗˇ','ㄧㄚ ˙ㄓ','ㄧㄚˊ ˙ㄗ'], tip:'115練習卷二第14題：「鴨子」的子讀平舌輕聲 ˙ㄗ！' },
   { id:'u1_115_34', emoji:'😮', name:'哎喲', ans:'ㄞ ㄧㄛ', opts:['ㄞ ㄧㄛ','ㄞ ㄧㄡ','ㄞˊ ㄧㄛ','ㄢ ㄧㄛ'], tip:'115練習卷二第16題（校稿修正）：被螃蟹夾到喊「哎喲」，拼作 ㄞ ㄧㄛ！' },
   { id:'u1_115_35', emoji:'🦌', name:'梅花鹿', ans:'ㄇㄟˊ ㄏㄨㄚ ㄌㄨˋ', opts:['ㄇㄟˊ ㄏㄨㄚ ㄌㄨˋ','ㄇㄟˊ ㄏㄨㄚ ㄖㄨˋ','ㄇㄟˊ ㄏㄚ ㄌㄨˋ','ㄇㄟ ㄏㄨㄚ ㄌㄨˋ'], tip:'115練習卷二第18題（校稿修正）：「梅花鹿」的鹿是邊音 ㄌㄨˋ，不是 ㄖㄨˋ！' },
-  { id:'u1_115_36', emoji:'🐦', name:'黑面琵鷺', ans:'ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ', opts:['ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄤˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄖㄨˋ','ㄏㄟ ㄇㄢˋ ㄆㄧˊ ㄌㄨˋ'], tip:'115練習卷二第24題（校稿修正）：「黑面琵鷺」的「面」是前鼻音 ㄇㄧㄢˋ！' }
+  { id:'u1_115_36', emoji:'🐦', name:'黑面琵鷺', ans:'ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ', opts:['ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄤˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄖㄨˋ','ㄏㄟ ㄇㄢˋ ㄆㄧˊ ㄌㄨˋ'], tip:'115練習卷二第24題（校稿修正）：「黑面琵鷺」4字自適應對齊，面是 ㄇㄧㄢˋ！' }
 ];
 
-// 3. 🔥 校本延伸挑戰題 (20題)
 const u1Challenge = [
   { id:'u1c1', emoji:'🦖', name:'恐龍', ans:'ㄎㄨㄥˇ ㄌㄨㄥˊ', opts:['ㄎㄨㄥˇ ㄌㄨㄥˊ','ㄎㄥˇ ㄌㄥˊ','ㄎㄨㄣˇ ㄌㄨㄣˊ','ㄎㄨㄥˇ ㄋㄨㄥˊ'], tip:'挑戰題：「恐」和「龍」都有介音 ㄨ 與後鼻音 ㄥ！' },
   { id:'u1c2', emoji:'🍓', name:'草莓', ans:'ㄘㄠˇ ㄇㄟˊ', opts:['ㄘㄠˇ ㄇㄟˊ','ㄔㄠˇ ㄇㄟˊ','ㄘㄠˊ ㄇㄟˊ','ㄙㄠˇ ㄇㄟˊ'], tip:'挑戰題：「草」是平舌音 ㄘㄠˇ，不是翹舌音 ㄔㄠˇ！' },
@@ -1307,8 +1289,7 @@ const u1Challenge = [
   { id:'u1c20', emoji:'🌟', name:'星星', ans:'ㄒㄧㄥ ˙ㄒㄧㄥ', opts:['ㄒㄧㄥ ˙ㄒㄧㄥ','ㄒㄧㄣ ˙ㄒㄧㄣ','ㄒㄧㄥ ㄒㄧㄥ','ㄒㄧㄥˊ ˙ㄒㄧㄥ'], tip:'挑戰題：「星」是後鼻音 ㄥ，第二個星讀輕聲 ˙ㄒㄧㄥ！' }
 ];
 
-// -------------------- 【單元二：音怪二選一】 --------------------
-// 1. 109~114 考古題 (32題)
+// 【單元二：音怪二選一】
 const u2Past = [
   { id:'u2p1', sentence:'【 ＿＿ 】看見彩虹就大聲歡呼。', word:'同學', ans:'ㄊㄨㄥˊ ㄒㄩㄝˊ', opts:['ㄊㄨㄥˊ ㄒㄩㄝˊ','ㄊㄥˊ ㄒㄩㄝˊ'], tip:'「同」中間有介音 ㄨ（111考題）' },
   { id:'u2p2', sentence:'同學看見彩虹就【 ＿＿ 】歡呼。', word:'大聲', ans:'ㄉㄚˋ ㄕㄥ', opts:['ㄉㄚˋ ㄕㄥ','ㄉㄚˋ ㄕㄣ'], tip:'「聲」是後鼻音 ㄥ（111考題）' },
@@ -1344,7 +1325,6 @@ const u2Past = [
   { id:'u2p32', sentence:'114卷二連連看語詞：【 ＿＿ 】', word:'池塘', ans:'ㄔˊ ㄊㄤˊ', opts:['ㄔˊ ㄊㄤˊ','ㄔˊ ㄊㄢˊ'], tip:'「塘」是後鼻音 ㄊㄤˊ（114卷二連連看）' }
 ];
 
-// 2. 🌟 115 最新練習題 二選一對決 (24題，100% 對應 115 卷一圈詞原題選項)
 const u2P115 = [
   { id:'u2_115_1', sentence:'115練習卷圈詞：小熊在浴缸裡【 ＿＿ 】。', word:'泡澡', ans:'ㄆㄠˋ ㄗㄠˇ', opts:['ㄆㄠˋ ㄗㄠˇ','ㄆㄠˋ ㄓㄠˇ'], tip:'115卷一第1題：「澡」是平舌音 ㄗㄠˇ！' },
   { id:'u2_115_2', sentence:'115練習卷圈詞：多吃綠色的【 ＿＿ 】身體好。', word:'菠菜', ans:'ㄅㄛ ㄘㄞˋ', opts:['ㄅㄛ ㄘㄞˋ','ㄅㄛ ㄔㄞˋ'], tip:'115卷一第2題（校稿修正）：「菠菜」是平舌音 ㄅㄛ ㄘㄞˋ，不是 ㄅㄛ ㄔㄞˋ！' },
@@ -1372,7 +1352,6 @@ const u2P115 = [
   { id:'u2_115_24', sentence:'115練習卷圈詞：魚缸裡有漂亮的【 ＿＿ 】。', word:'金魚', ans:'ㄐㄧㄣ ㄩˊ', opts:['ㄐㄧㄣ ㄩˊ','ㄐㄧㄥ ㄩˊ'], tip:'115卷一第24題：「金」是前鼻音 ㄐㄧㄣ！' }
 ];
 
-// 3. 🔥 校本平翹舌與延伸挑戰題 (31題)
 const u2Challenge = [
   { id:'u2c1', sentence:'我們要養成【 ＿＿ 】的好習慣。', word:'運動', ans:'ㄩㄣˋ ㄉㄨㄥˋ', opts:['ㄩㄣˋ ㄉㄨㄥˋ','ㄧㄣˋ ㄉㄨㄥˋ'], tip:'挑戰題：「運」是撮口音 ㄩㄣˋ，「動」有介音 ㄨ！' },
   { id:'u2c2', sentence:'妹妹在院子裡吹【 ＿＿ 】。', word:'泡泡', ans:'ㄆㄠˋ ˙ㄆㄠ', opts:['ㄆㄠˋ ˙ㄆㄠ','ㄅㄠˋ ˙ㄅㄠ'], tip:'挑戰題：「泡泡」第二個字讀輕聲 ˙ㄆㄠ！' },
@@ -1407,7 +1386,7 @@ const u2Challenge = [
   { id:'u2c31', sentence:'小寶寶張開小小的【 ＿＿ 】。', word:'手掌', ans:'ㄕㄡˇ ㄓㄤˇ', opts:['ㄕㄡˇ ㄓㄤˇ','ㄙㄡˇ ㄗㄤˇ'], tip:'平翹舌對決：「手」和「掌」兩個字都是翹舌音（ㄕ、ㄓ）！' }
 ];
 
-// -------------------- 【單元三：聲調抓小偷】 --------------------
+// 【單元三：聲調抓小偷】
 const u3Past = [
   { id:'u3p1', sentence:'弟弟【小】手拍拍。', target:'ㄒㄧㄠ', full:'ㄒㄧㄠˇ', ans:'ˇ', tip:'「小」原本是三聲 ˇ（111考題）' },
   { id:'u3p2', sentence:'公雞叫醒熟睡的大【地】。', target:'ㄉㄧ', full:'ㄉㄧˋ', ans:'ˋ', tip:'「地」是四聲 ˋ（111考題）' },
@@ -1436,7 +1415,6 @@ const u3Past = [
   { id:'u3p25', sentence:'生活到處有【驚】喜。', target:'ㄐㄧㄥ', full:'ㄐㄧㄥ', ans:'一聲', tip:'「驚」是一聲 ㄐㄧㄥ（114卷三第5題）' }
 ];
 
-// 🌟 115 練習卷聲調特訓 (15題)
 const u3P115 = [
   { id:'u3_115_1', sentence:'115練習題：盤子裡有新鮮的蘿【蔔】。', target:'ㄅㄛ', full:'˙ㄅㄛ', ans:'˙', tip:'「蘿蔔」的蔔讀輕聲 ˙ㄅㄛ！' },
   { id:'u3_115_2', sentence:'115練習題：端午節大家一起包粽【子】。', target:'ㄗ', full:'˙ㄗ', ans:'˙', tip:'「粽子」的子讀輕聲 ˙ㄗ！' },
@@ -1476,7 +1454,7 @@ const u3Challenge = [
   { id:'u3c18', sentence:'謝謝老【師】的教導。', target:'ㄕ', full:'ㄕ', ans:'一聲', tip:'挑戰題：「師」是一聲！' }
 ];
 
-// -------------------- 【單元四：書包大冒險】 --------------------
+// 【單元四：書包大冒險】
 const u4Past = [
   { id:'u4p1', emoji:'🍎', cat:'必考簡答：喜歡吃的水果', name:'蘋果', ans:'ㄆㄧㄥˊ ㄍㄨㄛˇ', opts:['ㄆㄧㄥˊ ㄍㄨㄛˇ','ㄆㄧㄣˊ ㄍㄨㄛˇ','ㄆㄧㄥˊ ㄍㄛˇ','ㄆㄧㄥ ㄍㄨㄛˇ'], tip:'「蘋」是後鼻音 ㄆㄧㄥˊ（109~113必考）' },
   { id:'u4p2', emoji:'🍌', cat:'必考簡答：喜歡吃的水果', name:'香蕉', ans:'ㄒㄧㄤ ㄐㄧㄠ', opts:['ㄒㄧㄤ ㄐㄧㄠ','ㄒㄧㄢ ㄐㄧㄠ','ㄒㄧㄤˊ ㄐㄧㄠ','ㄒㄤ ㄐㄧㄠ'], tip:'「香」是後鼻音一聲 ㄒㄧㄤ（109~113必考）' },
@@ -1495,11 +1473,10 @@ const u4Past = [
   { id:'u4p15', emoji:'📚', cat:'必考簡答：喜歡的休閒活動', name:'看書', ans:'ㄎㄢˋ ㄕㄨ', opts:['ㄎㄢˋ ㄕㄨ','ㄎㄤˋ ㄕㄨ','ㄎㄢˋ ㄙㄨ','ㄎㄢ ㄕㄨ'], tip:'「看」是前鼻音，「書」是翹舌音（109考題）' }
 ];
 
-// 🌟 115 練習卷二：動物圖鑑與生活特訓 (15題)
 const u4P115 = [
   { id:'u4_115_1', emoji:'🐹', cat:'115練習卷二：動物圖鑑特訓', name:'土撥鼠', ans:'ㄊㄨˇ ㄅㄛ ㄕㄨˇ', opts:['ㄊㄨˇ ㄅㄛ ㄕㄨˇ','ㄊㄨˇ ㄆㄛ ㄕㄨˇ','ㄊㄨˇ ㄅㄛˊ ㄕㄨˇ','ㄊㄨˇ ㄅㄛ ㄙㄨˇ'], tip:'115卷二第9題：「土撥鼠」的撥讀一聲 ㄅㄛ！' },
   { id:'u4_115_2', emoji:'🦌', cat:'115練習卷二：動物圖鑑特訓', name:'梅花鹿', ans:'ㄇㄟˊ ㄏㄨㄚ ㄌㄨˋ', opts:['ㄇㄟˊ ㄏㄨㄚ ㄌㄨˋ','ㄇㄟˊ ㄏㄨㄚ ㄖㄨˋ','ㄇㄟˊ ㄏㄚ ㄌㄨˋ','ㄇㄟ ㄏㄨㄚ ㄌㄨˋ'], tip:'115卷二第18題：「鹿」是邊音 ㄌㄨˋ！' },
-  { id:'u4_115_3', emoji:'🐦', cat:'115練習卷二：動物圖鑑特訓', name:'黑面琵鷺', ans:'ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ', opts:['ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄤˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄖㄨˋ','ㄏㄟ ㄇㄢˋ ㄆㄧˊ ㄌㄨˋ'], tip:'115卷二第24題：「黑面琵鷺」4個字也能完整對齊！' },
+  { id:'u4_115_3', emoji:'🐦', cat:'115練習卷二：動物圖鑑特訓', name:'黑面琵鷺', ans:'ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ', opts:['ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄤˋ ㄆㄧˊ ㄌㄨˋ','ㄏㄟ ㄇㄧㄢˋ ㄆㄧˊ ㄖㄨˋ','ㄏㄟ ㄇㄢˋ ㄆㄧˊ ㄌㄨˋ'], tip:'115卷二第24題：「黑面琵鷺」4字自適應對齊！' },
   { id:'u4_115_4', emoji:'🦊', cat:'115練習卷二：動物圖鑑特訓', name:'狐狸', ans:'ㄏㄨˊ ㄌㄧˊ', opts:['ㄏㄨˊ ㄌㄧˊ','ㄈㄨˊ ㄌㄧˊ','ㄏㄨˊ ㄋㄧˊ','ㄏㄨ ㄌㄧˊ'], tip:'115卷二第23題：「狐狸」拼作 ㄏㄨˊ ㄌㄧˊ！' },
   { id:'u4_115_5', emoji:'😮', cat:'115練習卷二：情境語詞特訓', name:'哎喲', ans:'ㄞ ㄧㄛ', opts:['ㄞ ㄧㄛ','ㄞ ㄧㄡ','ㄞˊ ㄧㄛ','ㄢ ㄧㄛ'], tip:'115卷二第16題：「哎喲」拼作 ㄞ ㄧㄛ！' },
   { id:'u4_115_6', emoji:'🦌', cat:'115練習卷二：動物圖鑑特訓', name:'麋鹿', ans:'ㄇㄧˊ ㄌㄨˋ', opts:['ㄇㄧˊ ㄌㄨˋ','ㄇㄧˊ ㄖㄨˋ','ㄇㄧ ㄌㄨˋ','ㄋㄧˊ ㄌㄨˋ'], tip:'115卷二第19題：「麋鹿」拼作 ㄇㄧˊ ㄌㄨˋ！' },
@@ -1532,7 +1509,6 @@ const u4Challenge = [
   { id:'u4c15', emoji:'😷', cat:'延伸簡答：每天上學要帶的物品', name:'口罩', ans:'ㄎㄡˇ ㄓㄠˋ', opts:['ㄎㄡˇ ㄓㄠˋ','ㄎㄡˇ ㄗㄠˋ','ㄎㄡ ㄓㄠˋ','ㄍㄡˇ ㄓㄠˋ'], tip:'挑戰題：「罩」是翹舌音 ㄓㄠˋ！' }
 ];
 
-// -------------------- 【單元五：小偵探閱測（111高鐵篇）】 --------------------
 const u5ReadingHTML = `
 <b>🚄 台灣高鐵（111學年度考卷閱讀測驗）</b><br><br>
 我從遠處奔馳而來（ㄅㄣ ㄔˊ ㄦˊ ㄌㄞˊ），轉眼又呼嘯而過，飛奔似的速度，我是台灣地表最快列車——<b>高鐵（ㄍㄠ ㄊㄧㄝˇ）</b>！<br><br>
@@ -1547,8 +1523,7 @@ const u5Data = [
   { id:'u5_4', q:'4. 【複選題】搭高鐵有哪些優點？（點選所有正確答案再按送出）', ans:['ㄕㄨ ㄕˋ（舒適）','ㄆㄧㄥˊ ㄨㄣˇ（平穩）','ㄢ ㄑㄩㄢˊ（安全）'], opts:['ㄕㄨ ㄕˋ（舒適）','ㄘˋ ㄐㄧ（刺激）','ㄆㄧㄥˊ ㄨㄣˇ（平穩）','ㄢ ㄑㄩㄢˊ（安全）'], multi:true, tip:'第三段說：「平穩、舒適又安全」，沒有刺激喔！' }
 ];
 
-/* ==================== 第四部分：遊戲狀態、自選組合與錯題重置控制 ==================== */
-let qMode = 'past'; // 'past' | 'p115' | 'challenge' | 'mix'
+let qMode = 'past';
 let qCount = 10;
 let mixSelection = { past: true, p115: true, challenge: true };
 
@@ -1560,6 +1535,7 @@ let quizQueue = [];
 let currentIdx = 0;
 let isAnswered = false;
 let multiSet = new Set();
+let sessionWrongCount = 0;
 
 function setMode(m, btn) {
   qMode = m;
@@ -1569,7 +1545,6 @@ function setMode(m, btn) {
 }
 
 function toggleMixPool(poolKey) {
-  // 確保至少保留勾選一個題庫
   const activeCount = Object.values(mixSelection).filter(Boolean).length;
   if (mixSelection[poolKey] && activeCount <= 1) {
     alert('請至少保留勾選一個題庫喔！');
@@ -1632,7 +1607,6 @@ function clearMistake(id) {
   updateBadges();
 }
 
-// 錯題本一鍵重置功能（保留星星數）
 function resetMistakes(ev) {
   if (ev) ev.stopPropagation();
   if (mistakes.length === 0) {
@@ -1665,7 +1639,6 @@ function getPool(pastArr, p115Arr, chalArr, unitType) {
   return shuffle(pool).slice(0, qCount).map(x => ({ ...x, unitType }));
 }
 
-/* ==================== 第五部分：單元啟動與渲染舞台 ==================== */
 function goHome() {
   if ('speechSynthesis' in window) {
     try { window.speechSynthesis.cancel(); } catch(e) {}
@@ -1690,6 +1663,7 @@ function getModeTitleLabel() {
 function startUnit(u) {
   currentUnit = u;
   currentIdx = 0;
+  sessionWrongCount = 0;
   const modeName = getModeTitleLabel();
   document.getElementById('stageResetMistakeBtn').style.display = (u === 6) ? 'inline-block' : 'none';
 
@@ -1838,7 +1812,6 @@ function renderCurrentQuestion() {
   }
 }
 
-/* ==================== 第六部分：檢核答案與回饋 ==================== */
 function handlePick(el, val) {
   if (isAnswered) return;
   isAnswered = true;
@@ -1862,6 +1835,7 @@ function handlePick(el, val) {
     fbMsg.innerHTML = `🎉 答對了！獲得 1 顆星 ⭐ ｜ 💡 ${item.tip}`;
   } else {
     el.classList.add('wrong');
+    sessionWrongCount++;
     document.querySelectorAll('.option-card').forEach(c => {
       if (c.getAttribute('data-val') === item.ans) c.classList.add('correct');
     });
@@ -1910,6 +1884,7 @@ function submitMultiOpt() {
     fbBar.className = 'feedback-bar ok';
     fbMsg.innerHTML = `🎉 複選題全對！獲得 2 顆星 ⭐⭐ ｜ 💡 ${item.tip}`;
   } else {
+    sessionWrongCount++;
     playSound('err');
     saveMistake(item);
     fbBar.className = 'feedback-bar err';
@@ -1928,21 +1903,75 @@ function nextQuestion() {
 }
 
 function showResultScreen() {
-  playSound('ok');
   document.getElementById('progressFill').style.width = '100%';
   document.getElementById('nextBtn').style.display = 'none';
-  document.getElementById('feedbackMsg').innerHTML = '🏆 太棒了！已經完成本回合所有題目！';
+
+  let praiseTitle = '';
+  let praiseEmoji = '';
+  let praiseColor = '';
+  let praiseSpeech = '';
+  let summaryText = '';
+
+  if (currentUnit === 6) {
+    if (mistakes.length === 0) {
+      praiseEmoji = '🎆🏆';
+      praiseTitle = '加油加油！你最棒了';
+      praiseColor = '#10B981';
+      praiseSpeech = '加油加油！你最棒了！所有錯題怪獸都被消滅了！';
+      summaryText = '太不可思議了！你把所有的錯題小怪獸全部打倒了！考試一定拿滿分！';
+      playSound('victory');
+    } else {
+      praiseEmoji = '⚔️';
+      praiseTitle = '怪獸消滅戰結束！';
+      praiseColor = '#3B82F6';
+      praiseSpeech = `太棒了！還有 ${mistakes.length} 隻怪獸，繼續加油把它們消滅！`;
+      summaryText = `本回合表現優秀！還有 <b>${mistakes.length} 隻</b>小怪獸躲在黑名單裡，再接再厲！`;
+      playSound('ok');
+    }
+  } else {
+    if (sessionWrongCount === 0) {
+      praiseEmoji = '👑';
+      praiseTitle = '好棒棒！';
+      praiseColor = '#F59E0B';
+      praiseSpeech = '好棒棒！全部答對！你真是太厲害了！';
+      summaryText = `太完美了！本回合 ${quizQueue.length} 題<b>全部答對（錯 0 題）</b>！`;
+      playSound('victory');
+    } else if (sessionWrongCount <= 2) {
+      praiseEmoji = '🎖️';
+      praiseTitle = '好棒！';
+      praiseColor = '#3B82F6';
+      praiseSpeech = '好棒！差一點點就滿分囉！';
+      summaryText = `表現超級精彩！只錯了 <b>${sessionWrongCount} 題</b>，差一點點就滿分囉！`;
+      playSound('ok');
+    } else {
+      praiseEmoji = '💪';
+      praiseTitle = '再加油！';
+      praiseColor = '#EC4899';
+      praiseSpeech = '再加油！去錯題本打倒怪獸就會變超強！';
+      summaryText = `這次錯了 <b>${sessionWrongCount} 題</b>，沒關係，去「怪獸黑名單」把牠們消滅就會變超強！`;
+      playSound('ok');
+    }
+  }
+
+  setTimeout(() => {
+    speak(praiseSpeech);
+  }, 250);
+
+  document.getElementById('feedbackMsg').innerHTML = `🏆 回合結束！獲得專屬評語：<b>${praiseTitle}</b>`;
 
   document.getElementById('leftPanel').innerHTML = `
-    <div style="font-size:5.2rem;">🎉</div>
-    <h2 style="margin:10px 0;color:var(--primary);font-size:1.75rem;">特訓闖關成功！</h2>
-    <p style="font-size:1.15rem;color:#475569;">目前已累積 <b>⭐ ${stars} 顆星星</b>！</p>
+    <div style="font-size:4.8rem; line-height:1.1;">${praiseEmoji}</div>
+    <div class="praise-title" style="color:${praiseColor};">${praiseTitle}</div>
+    <p style="font-size:1.12rem; color:#475569; margin:6px 0; line-height:1.5;">${summaryText}</p>
+    <div style="font-size:1.05rem; font-weight:800; color:#B45309; margin-top:4px;">
+      累積獲得：⭐ ${stars} 顆星星
+    </div>
   `;
 
   document.getElementById('rightPanel').innerHTML = `
-    <div style="display:flex;flex-direction:column;gap:16px;width:80%;">
-      <button class="btn-top" style="background:var(--blue);box-shadow:0 5px 0 #1D4ED8;padding:18px;font-size:1.28rem;" onclick="startUnit(${currentUnit})">🔄 再挑戰一次本單元（重新抽題）</button>
-      <button class="btn-top" style="background:var(--green);box-shadow:0 5px 0 #047857;padding:18px;font-size:1.28rem;" onclick="goHome()">🏠 回首頁換其他單元或題庫</button>
+    <div style="display:flex; flex-direction:column; gap:16px; width:82%;">
+      <button class="btn-top" style="background:var(--blue); box-shadow:0 5px 0 #1D4ED8; padding:18px; font-size:1.26rem;" onclick="startUnit(${currentUnit})">🔄 再挑戰一次本單元（重新抽題）</button>
+      <button class="btn-top" style="background:var(--green); box-shadow:0 5px 0 #047857; padding:18px; font-size:1.26rem;" onclick="goHome()">🏠 回首頁換其他單元或題庫</button>
     </div>
   `;
 }
